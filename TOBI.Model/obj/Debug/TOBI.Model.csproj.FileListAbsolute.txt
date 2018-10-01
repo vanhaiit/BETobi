@@ -1,0 +1,17 @@
+D:\DEVELOPER\TOBI\TOBI.Model\bin\Debug\TOBI.Model.dll.config
+D:\DEVELOPER\TOBI\TOBI.Model\bin\Debug\TOBI.Model.dll
+D:\DEVELOPER\TOBI\TOBI.Model\bin\Debug\TOBI.Model.pdb
+D:\DEVELOPER\TOBI\TOBI.Model\bin\Debug\EntityFramework.dll
+D:\DEVELOPER\TOBI\TOBI.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\DEVELOPER\TOBI\TOBI.Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\DEVELOPER\TOBI\TOBI.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\DEVELOPER\TOBI\TOBI.Model\bin\Debug\EntityFramework.xml
+D:\DEVELOPER\TOBI\TOBI.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\DEVELOPER\TOBI\TOBI.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\DEVELOPER\TOBI\TOBI.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\DEVELOPER\TOBI\TOBI.Model\obj\Debug\TOBI.Model.dll
+D:\DEVELOPER\TOBI\TOBI.Model\obj\Debug\TOBI.Model.pdb
+D:\DEVELOPER\TOBI\TOBI.Model\obj\Debug\TOBI.Model.csprojResolveAssemblyReference.cache
+D:\DEVELOPER\TOBI\TOBI.Model\obj\Debug\TOBI.Model.Migrations.newDb.resources
+D:\DEVELOPER\TOBI\TOBI.Model\obj\Debug\TOBI.Model.csproj.GenerateResource.Cache
+D:\DEVELOPER\TOBI\TOBI.Model\obj\Debug\TOBI.Model.Migrations.edituser.resources
