@@ -10,6 +10,7 @@ using TOBI.Web.Infrastructure.Core;
 namespace TOBI.Web.Api
 {
     [RoutePrefix("api/postcategory")]
+    [Authorize]
     public class ApplicationUserController : ApiControllerBase
     {
         IApplicationUserService _applicationUserService;
@@ -20,6 +21,7 @@ namespace TOBI.Web.Api
         }
 
         [Route("getall")]
+        [HttpGet]
         public HttpResponseMessage Get(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
