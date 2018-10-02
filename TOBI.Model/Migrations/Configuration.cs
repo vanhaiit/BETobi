@@ -16,30 +16,30 @@ namespace TOBI.Model.Migrations
         }
         protected override void Seed(TOBI.Model.Models.TOBIDbConText context)
         {
-            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new TOBIDbConText()));
+            //var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new TOBIDbConText()));
 
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new TOBIDbConText()));
+            //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new TOBIDbConText()));
 
-            var user = new ApplicationUser()
-            {
-                UserName = "admin",
-                Email = "vanhaiit@gmail.com",
-                EmailConfirmed = true,
-                BirthDay = DateTime.Now,
-                FullName = "Van hai IT",
-            };
+            //var user = new ApplicationUser()
+            //{
+            //    UserName = "admin",
+            //    Email = "vanhaiit@gmail.com",
+            //    EmailConfirmed = true,
+            //    BirthDay = DateTime.Now,
+            //    FullName = "Van hai IT",
+            //};
 
-            manager.Create(user, "123456");
+            //manager.Create(user, "123456");
 
-            if (!roleManager.Roles.Any())
-            {
-                roleManager.Create(new IdentityRole { Name = "Admin" });
-                roleManager.Create(new IdentityRole { Name = "User" });
-            }
+            //if (!roleManager.Roles.Any())
+            //{
+            //    roleManager.Create(new IdentityRole { Name = "Admin" });
+            //    roleManager.Create(new IdentityRole { Name = "User" });
+            //}
 
-            var adminUser = manager.FindByEmail("vanhaiit@gmail.com");
+            //var adminUser = manager.FindByEmail("vanhaiit@gmail.com");
 
-            manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
+            //manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
 
         }
     }
