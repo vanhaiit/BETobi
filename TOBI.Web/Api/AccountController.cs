@@ -11,6 +11,12 @@ using TOBI.Model.Models;
 using TOBI.Web.App_Start;
 using TOBI.Web.Models;
 using TOBI.Web.Infrastructure.Extensions;
+using Microsoft.Owin.Security;
+using System.Security.Claims;
+using Microsoft.Owin.Host.SystemWeb;
+using Microsoft.AspNet.Identity.Owin;
+
+
 
 namespace TOBI.Web.Api
 {
@@ -56,19 +62,45 @@ namespace TOBI.Web.Api
 
         [HttpPost]
         [AllowAnonymous]
-        [Route("login")]
-        public async Task<HttpResponseMessage> Login(HttpRequestMessage request, string userName, string password, bool rememberMe)
+        [Route("signout")]
+        public async Task<HttpResponseMessage> SignOut(HttpRequestMessage request)
         {
-            if (!ModelState.IsValid)
-            {
-                return request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
-            var result = await SignInManager.PasswordSignInAsync(userName, password, rememberMe, shouldLockout: false);
-            return request.CreateResponse(HttpStatusCode.OK, result);
+            var authentication = HttpContext.Current.GetOwinContext().Authentication;
+
+            authentication.SignOut(DefaultAuthenticationTypes.ExternalBearer);
+
+            return request.CreateResponse(HttpStatusCode.OK);
         }
+
         [HttpPost]
         [AllowAnonymous]
-        [Route("add")]
+        [Route("signin")]
+        public async Task<HttpResponseMessage> Login(HttpRequestMessage request, LoginViewModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                ApplicationUser user = _userManager.Find(model.UserName, model.Password);
+                if (user != null)
+                {
+                    IAuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                    authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+                    ClaimsIdentity identity = _userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                    AuthenticationProperties props = new AuthenticationProperties();
+                    props.IsPersistent = model.RememberMe;
+                    authenticationManager.SignIn(props, identity);
+                    return request.CreateResponse(HttpStatusCode.OK, returnUrl);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không đúng.");
+                }
+            }
+            return request.CreateResponse(HttpStatusCode.OK, model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("signup")]
         public async Task<HttpResponseMessage> Create(HttpRequestMessage request, ApplicationUserViewModel model)
         {
            if (ModelState.IsValid)
