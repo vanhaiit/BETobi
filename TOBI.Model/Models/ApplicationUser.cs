@@ -25,13 +25,21 @@ namespace TOBI.Model.Models
         public string Address { get; set; }
 
         public DateTime? BirthDay { get; set; }
+
         public string Avatar { get; set; }
+
         public string Page { get; set; }
+
         public int Cost { get; set; }
+
         public int Evaluate { get; set; }
+
         public int Startus { get; set; }
+
         public int Refuse { get; set; }
+
         public int Finish { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

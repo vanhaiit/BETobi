@@ -2,7 +2,7 @@
 using TOBI.Model.Models;
 using TOBI.Web.Models;
 
-namespace G9VN.TIKTAK.Web.Mappings
+namespace TOBI.Web.Mappings
 {
     public class AutoMapperConfiguration
     {

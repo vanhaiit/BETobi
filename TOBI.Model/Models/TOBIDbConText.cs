@@ -1,24 +1,27 @@
 namespace TOBI.Model.Models
 {
-    using System;
     using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    public partial class TOBIDbConText : DbContext
+    public partial class TOBIDbConText : IdentityDbContext<ApplicationUser>
     {
         public TOBIDbConText()
             : base("name=TOBIDbConText")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
-        public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public virtual DbSet<CommentForPlayer> CommentForPlayers { get; set; }
         public virtual DbSet<DetailMatch> DetailMatches { get; set; }
         public virtual DbSet<Error> Errors { get; set; }
         public virtual DbSet<History> Histories { get; set; }
         public virtual DbSet<Match> Matches { get; set; }
+
+        public DbSet<ApplicationGroup> ApplicationGroups { set; get; }
+        public DbSet<ApplicationRole> ApplicationRoles { set; get; }
+        public DbSet<ApplicationRoleGroup> ApplicationRoleGroups { set; get; }
+        public DbSet<ApplicationUserGroup> ApplicationUserGroups { set; get; }
+
         public static TOBIDbConText Create()
         {
             return new TOBIDbConText();

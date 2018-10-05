@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Net;
@@ -10,11 +9,8 @@ using System.Web.Http;
 using TOBI.Model.Models;
 using TOBI.Web.App_Start;
 using TOBI.Web.Models;
-using TOBI.Web.Infrastructure.Extensions;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
-using Microsoft.Owin.Host.SystemWeb;
-using Microsoft.AspNet.Identity.Owin;
 
 
 
@@ -103,7 +99,7 @@ namespace TOBI.Web.Api
         [Route("signup")]
         public async Task<HttpResponseMessage> Create(HttpRequestMessage request, ApplicationUserViewModel model)
         {
-           if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 model.BirthDay = DateTime.Now;
                 var userByEmail = await _userManager.FindByEmailAsync(model.Email);

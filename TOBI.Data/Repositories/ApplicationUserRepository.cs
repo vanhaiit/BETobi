@@ -6,28 +6,26 @@ using System.Linq;
 
 namespace TOBI.Data.Repositories
 {
-
-        
-    public interface IApplicationUserRepository :IRepository<ApplicationUser>
+    public interface IApplicationUserRepository : IRepository<ApplicationUser>
     {
-        IEnumerable<ApplicationUser> GetByID(string id);
-        List<ApplicationUser> GetUser(string id);
+        List<ApplicationUser> GetAll(string userName);
+        ApplicationUser GetUserName(string key);
     }
+
     public class ApplicationUserRepository : RepositoryBase<ApplicationUser>, IApplicationUserRepository
     {
         public ApplicationUserRepository(IDbFactory dbFactory) : base(dbFactory)
         {
         }
 
-        public IEnumerable<ApplicationUser> GetByID(string id)
+        public List<ApplicationUser> GetAll(string userName)
         {
-            return this.DbContext.ApplicationUsers.Where(x => x.Id == id);
+            return this.DbContext.Set<ApplicationUser>().Where<ApplicationUser>(x => x.UserName == userName).ToList();
         }
 
-
-        public List<ApplicationUser> GetUser(string id)
+        public ApplicationUser GetUserName(string key)
         {
-            return this.DbContext.ApplicationUsers.Where(x => x.Id == id).ToList(); ;
+            return this.DbContext.Set<ApplicationUser>().Where<ApplicationUser>(x => x.UserName == key).Single();
         }
     }
 }
