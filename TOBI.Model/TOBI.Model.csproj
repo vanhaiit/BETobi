@@ -58,16 +58,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201810010603323_newDb.cs" />
-    <Compile Include="Migrations\201810010603323_newDb.Designer.cs">
-      <DependentUpon>201810010603323_newDb.cs</DependentUpon>
+    <Compile Include="Migrations\201810041258057_updateDB2.cs" />
+    <Compile Include="Migrations\201810041258057_updateDB2.Designer.cs">
+      <DependentUpon>201810041258057_updateDB2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810010613339_edituser.cs" />
-    <Compile Include="Migrations\201810010613339_edituser.Designer.cs">
-      <DependentUpon>201810010613339_edituser.cs</DependentUpon>
+    <Compile Include="Migrations\201810041445065_update945.cs" />
+    <Compile Include="Migrations\201810041445065_update945.Designer.cs">
+      <DependentUpon>201810041445065_update945.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810041454140_adduser.cs" />
+    <Compile Include="Migrations\201810041454140_adduser.Designer.cs">
+      <DependentUpon>201810041454140_adduser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApplicationGroup.cs" />
+    <Compile Include="Models\ApplicationRole.cs" />
+    <Compile Include="Models\ApplicationRoleGroup.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\ApplicationUserGroup.cs" />
     <Compile Include="Models\CommentForPlayer.cs" />
     <Compile Include="Models\DetailMatch.cs" />
     <Compile Include="Models\Error.cs" />
@@ -83,11 +91,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810010603323_newDb.resx">
-      <DependentUpon>201810010603323_newDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810041258057_updateDB2.resx">
+      <DependentUpon>201810041258057_updateDB2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810010613339_edituser.resx">
-      <DependentUpon>201810010613339_edituser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810041445065_update945.resx">
+      <DependentUpon>201810041445065_update945.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810041454140_adduser.resx">
+      <DependentUpon>201810041454140_adduser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
