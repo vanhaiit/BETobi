@@ -103,10 +103,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TOBI.Common\TOBI.Common.csproj">
-      <Project>{ec7af4cb-fc08-4b0a-9fbc-cf93f3898cf0}</Project>
-      <Name>TOBI.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TOBI.Data\TOBI.Data.csproj">
       <Project>{ff2aaa80-7a99-47cc-8a7d-7d1cee14ebef}</Project>
       <Name>TOBI.Data</Name>
