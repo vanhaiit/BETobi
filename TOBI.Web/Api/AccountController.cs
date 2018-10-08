@@ -11,8 +11,7 @@ using TOBI.Web.App_Start;
 using TOBI.Web.Models;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
-
-
+using TOBI.Service;
 
 namespace TOBI.Web.Api
 {
@@ -21,13 +20,16 @@ namespace TOBI.Web.Api
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+       
 
         public AccountController()
         {
+
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
+
             UserManager = userManager;
             SignInManager = signInManager;
         }
@@ -56,10 +58,11 @@ namespace TOBI.Web.Api
             }
         }
 
+
         [HttpPost]
         [AllowAnonymous]
         [Route("signout")]
-        public async Task<HttpResponseMessage> SignOut(HttpRequestMessage request)
+        public async Task<HttpResponseMessage> SignOut(HttpRequestMessage request,string id)
         {
             var authentication = HttpContext.Current.GetOwinContext().Authentication;
 
@@ -71,7 +74,7 @@ namespace TOBI.Web.Api
         [HttpPost]
         [AllowAnonymous]
         [Route("signin")]
-        public async Task<HttpResponseMessage> Login(HttpRequestMessage request, LoginViewModel model, string returnUrl)
+        public async Task<HttpResponseMessage> Login(HttpRequestMessage request, LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +87,7 @@ namespace TOBI.Web.Api
                     AuthenticationProperties props = new AuthenticationProperties();
                     props.IsPersistent = model.RememberMe;
                     authenticationManager.SignIn(props, identity);
-                    return request.CreateResponse(HttpStatusCode.OK, returnUrl);
+                    return request.CreateResponse(HttpStatusCode.OK, user);
                 }
                 else
                 {
@@ -101,7 +104,6 @@ namespace TOBI.Web.Api
         {
             if (ModelState.IsValid)
             {
-                model.BirthDay = DateTime.Now;
                 var userByEmail = await _userManager.FindByEmailAsync(model.Email);
                 if (userByEmail != null)
                 {
@@ -119,18 +121,12 @@ namespace TOBI.Web.Api
                     UserName = model.UserName,
                     Email = model.Email,
                     EmailConfirmed = true,
-                    BirthDay = DateTime.Now,
+                    BirthDay = model.BirthDay,
                     FullName = model.FullName,
                     PhoneNumber = model.PhoneNumber,
-                    Address = model.Address
-
+                    Address = model.Address,
                 };
-
                 await _userManager.CreateAsync(user, model.Password);
-
-
-                var adminUser = await _userManager.FindByEmailAsync(model.Email);
-                if (adminUser != null) await _userManager.AddToRolesAsync(adminUser.Id, new string[] { "User" });
                 return request.CreateResponse(HttpStatusCode.OK, model);
             }
             else
