@@ -12,6 +12,8 @@ namespace TOBI.Web.Mappings
             {
                 //aplicationuser
                 cfg.CreateMap<ApplicationUser, ApplicationUserViewModel>().MaxDepth(2);
+                cfg.CreateMap<ApplicationGroup, ApplicationGroupViewModel>().MaxDepth(2);
+                //  apper.Map<ApplicationGroup, ApplicationGroupViewModel>(appGroup);
             });
         }
     }

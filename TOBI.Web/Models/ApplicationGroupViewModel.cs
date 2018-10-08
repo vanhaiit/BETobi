@@ -12,6 +12,7 @@ namespace TOBI.Web.Models
         public string Name { get; set; }
 
         public string Description { set; get; }
+
         public IEnumerable<ApplicationRoleViewModel> Roles { set; get; }
     }
 }

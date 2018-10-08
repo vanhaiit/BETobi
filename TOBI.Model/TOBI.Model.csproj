@@ -58,17 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201810041258057_updateDB2.cs" />
-    <Compile Include="Migrations\201810041258057_updateDB2.Designer.cs">
-      <DependentUpon>201810041258057_updateDB2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810041445065_update945.cs" />
-    <Compile Include="Migrations\201810041445065_update945.Designer.cs">
-      <DependentUpon>201810041445065_update945.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810041454140_adduser.cs" />
-    <Compile Include="Migrations\201810041454140_adduser.Designer.cs">
-      <DependentUpon>201810041454140_adduser.cs</DependentUpon>
+    <Compile Include="Migrations\201810071136380_adduser.cs" />
+    <Compile Include="Migrations\201810071136380_adduser.Designer.cs">
+      <DependentUpon>201810071136380_adduser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationGroup.cs" />
@@ -91,14 +83,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810041258057_updateDB2.resx">
-      <DependentUpon>201810041258057_updateDB2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810041445065_update945.resx">
-      <DependentUpon>201810041445065_update945.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810041454140_adduser.resx">
-      <DependentUpon>201810041454140_adduser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810071136380_adduser.resx">
+      <DependentUpon>201810071136380_adduser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

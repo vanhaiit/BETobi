@@ -34,24 +34,7 @@ namespace TOBI.Web.Models
         public int LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
-        //public string Id { get; set; }
-        //public string History_id { get; set; }
-        //public int? TotalAmount { get; set; }
-        //public string FullName { get; set; }
-        //public string Address { get; set; }
-        //public DateTime? BirthDay { get; set; }
-        //public string Avatar { get; set; }
-        //public string Page { get; set; }
-        //public int Cost { get; set; }
-        //public int Evaluate { get; set; }
-        //public int Startus { get; set; }
-        //public int Refuse { get; set; }
-        //public int Finish { get; set; }
-        //public string Email { set; get; }
         public string Password { set; get; }
-        //public string UserName { set; get; }
-        //public string StoreName { get; set; }
-        //public string PhoneNumber { set; get; }
 
         public IEnumerable<ApplicationGroupViewModel> Groups { set; get; }
     }

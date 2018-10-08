@@ -100,6 +100,7 @@ namespace TOBI.Web.Api
             {
                 var newAppGroup = new ApplicationGroup();
                 newAppGroup.Name = appGroupViewModel.Name;
+                newAppGroup.Description = appGroupViewModel.Description;
                 try
                 {
                     var appGroup = _appGroupService.Add(newAppGroup);

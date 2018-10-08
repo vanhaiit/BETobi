@@ -18,8 +18,10 @@ namespace TOBI.Web.App_Start
     public partial class Startup
     {
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
+
         public void ConfigureAuth(IAppBuilder app)
-        {// Configure the db context, user manager and signin manager to use a single instance per request
+        {
+            // Configure the db context, user manager and signin manager to use a single instance per request
             app.CreatePerOwinContext(TOBIDbConText.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
@@ -27,10 +29,11 @@ namespace TOBI.Web.App_Start
             app.CreatePerOwinContext<UserManager<ApplicationUser>>(CreateManager);
             app.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions
             {
-                TokenEndpointPath = new PathString("/oauth/token"),
-                Provider = new AuthorizationServerProvider(),
-                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(30),
                 AllowInsecureHttp = true,
+                TokenEndpointPath = new PathString("/oauth/token"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                Provider = new AuthorizationServerProvider(),
+              
 
             });
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
@@ -45,8 +48,8 @@ namespace TOBI.Web.App_Start
             //   consumerSecret: "");
 
             //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            //   appId: "550888905324795",
+            //   appSecret: "684cf3e0b06f559a5704b9e1200b4545");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
@@ -88,7 +91,7 @@ namespace TOBI.Web.App_Start
                 }
                 else
                 {
-                    context.SetError("invalid_grant", "Tài khoản hoặc mật khẩu không đúng.'");
+                    context.SetError("Tài khoản hoặc mật khẩu không đúng !");
                     context.Rejected();
                 }
             }
