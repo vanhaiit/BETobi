@@ -82,7 +82,7 @@ namespace TeduShop.Web.Api
         }
 
         [HttpPost]
-        [Route("add")]
+        [Route("create")]
         public HttpResponseMessage Create(HttpRequestMessage request, ApplicationRoleViewModel applicationRoleViewModel)
         {
             if (ModelState.IsValid)
@@ -139,33 +139,6 @@ namespace TeduShop.Web.Api
             _appRoleService.Save();
             return request.CreateResponse(HttpStatusCode.OK, id);
         }
-
-        //[Route("deletemulti")]
-        //[HttpDelete]
-        //public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string checkedList)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        HttpResponseMessage response = null;
-        //        if (!ModelState.IsValid)
-        //        {
-        //            response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-        //        }
-        //        else
-        //        {
-        //            var listItem = new JavaScriptSerializer().Deserialize<List<string>>(checkedList);
-        //            foreach (var item in listItem)
-        //            {
-        //                _appRoleService.Delete(item);
-        //            }
-
-        //            _appRoleService.Save();
-
-        //            response = request.CreateResponse(HttpStatusCode.OK, listItem.Count);
-        //        }
-
-        //        return response;
-        //    });
-        //}
+       
     }
 }

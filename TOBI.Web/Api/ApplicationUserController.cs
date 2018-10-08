@@ -105,7 +105,7 @@ namespace TOBI.Web.Api
         }
 
         [HttpPost]
-        [Route("add")]
+        [Route("create")]
         [Authorize(Roles = "AddUser")]
         public async Task<HttpResponseMessage> Create(HttpRequestMessage request, ApplicationUserViewModel applicationUserViewModel)
         {

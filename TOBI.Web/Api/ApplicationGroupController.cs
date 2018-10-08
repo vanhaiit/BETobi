@@ -93,7 +93,7 @@ namespace TOBI.Web.Api
         }
 
         [HttpPost]
-        [Route("add")]
+        [Route("create")]
         public HttpResponseMessage Create(HttpRequestMessage request, ApplicationGroupViewModel appGroupViewModel)
         {
             if (ModelState.IsValid)
@@ -196,33 +196,6 @@ namespace TOBI.Web.Api
             _appGroupService.Save();
             return request.CreateResponse(HttpStatusCode.OK, appGroup);
         }
-
-        //[Route("deletemulti")]
-        //[HttpDelete]
-        //public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string checkedList)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        HttpResponseMessage response = null;
-        //        if (!ModelState.IsValid)
-        //        {
-        //            response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-        //        }
-        //        else
-        //        {
-        //            var listItem = new JavaScriptSerializer().Deserialize<List<int>>(checkedList);
-        //            foreach (var item in listItem)
-        //            {
-        //                _appGroupService.Delete(item);
-        //            }
-
-        //            _appGroupService.Save();
-
-        //            response = request.CreateResponse(HttpStatusCode.OK, listItem.Count);
-        //        }
-
-        //        return response;
-        //    });
-        //}
+      
     }
 }

@@ -74,7 +74,7 @@ namespace TOBI.Web.Api
         [HttpPost]
         [AllowAnonymous]
         [Route("signin")]
-        public async Task<HttpResponseMessage> Login(HttpRequestMessage request, LoginViewModel model)
+        public async Task<HttpResponseMessage> signin(HttpRequestMessage request, LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +100,7 @@ namespace TOBI.Web.Api
         [HttpPost]
         [AllowAnonymous]
         [Route("signup")]
-        public async Task<HttpResponseMessage> Create(HttpRequestMessage request, ApplicationUserViewModel model)
+        public async Task<HttpResponseMessage> signup(HttpRequestMessage request, ApplicationUserViewModel model)
         {
             if (ModelState.IsValid)
             {
