@@ -1,4 +1,0 @@
-D:\DEVELOPER\TOBI\TOBI.Common\bin\Debug\TOBI.Common.dll
-D:\DEVELOPER\TOBI\TOBI.Common\bin\Debug\TOBI.Common.pdb
-D:\DEVELOPER\TOBI\TOBI.Common\obj\Debug\TOBI.Common.dll
-D:\DEVELOPER\TOBI\TOBI.Common\obj\Debug\TOBI.Common.pdb
