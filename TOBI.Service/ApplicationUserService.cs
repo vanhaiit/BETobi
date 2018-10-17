@@ -10,7 +10,7 @@ namespace TOBI.Service
     public interface IApplicationUserService
     {
         IEnumerable<ApplicationUser> GetAll();
-       
+        IEnumerable<ApplicationUser> GetUserName(string key);
         void Update(ApplicationUser appUser);
         void Save();
     }
@@ -41,6 +41,11 @@ namespace TOBI.Service
         public IEnumerable<ApplicationUser> GetAll()
         {
             return _appUserRepository.GetAll();
+        }
+
+        public IEnumerable<ApplicationUser> GetUserName(string key)
+        {
+            return _appUserRepository.GetUserName(key);
         }
     }
 }

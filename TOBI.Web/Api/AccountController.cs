@@ -20,7 +20,8 @@ namespace TOBI.Web.Api
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-       
+        private IApplicationUserService _applicationUserService;
+
 
         public AccountController()
         {
@@ -58,11 +59,31 @@ namespace TOBI.Web.Api
             }
         }
 
+        [Route("getbyname")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> GetById(HttpRequestMessage request, string key)
+        {
+
+            var userByEmail = new ApplicationUser();
+            userByEmail = await _userManager.FindByEmailAsync(key);
+            if (userByEmail != null)
+            {
+                return request.CreateResponse(HttpStatusCode.OK, userByEmail);
+            }
+            var userByUserName = new ApplicationUser();
+            userByUserName = await _userManager.FindByNameAsync(key);
+            if (userByUserName != null)
+            {
+                return request.CreateResponse(HttpStatusCode.OK, userByUserName);
+
+            }
+            return request.CreateErrorResponse(HttpStatusCode.OK, key);
+        }
 
         [HttpPost]
         [AllowAnonymous]
         [Route("signout")]
-        public async Task<HttpResponseMessage> SignOut(HttpRequestMessage request,string id)
+        public async Task<HttpResponseMessage> SignOut(HttpRequestMessage request, string id)
         {
             var authentication = HttpContext.Current.GetOwinContext().Authentication;
 

@@ -29,7 +29,7 @@ namespace TOBI.Web.Api
         private IApplicationRoleService _appRoleService;
         public ApplicationUserController(
             IErrorService errorService,
-            IApplicationUserService postCategoryService,
+            IApplicationUserService applicationUserService,
             ApplicationUserManager userManager,
             IApplicationGroupService appGroupService,
             IApplicationRoleService appRoleService
@@ -38,7 +38,7 @@ namespace TOBI.Web.Api
             _appRoleService = appRoleService;
             _userManager = userManager;
             _appGroupService = appGroupService;
-            _applicationUserService = postCategoryService;
+            _applicationUserService = applicationUserService;
         }
 
         [Route("getall")]
@@ -74,6 +74,19 @@ namespace TOBI.Web.Api
                 };
 
                 response = request.CreateResponse(HttpStatusCode.OK, pagedSet);
+
+                return response;
+            });
+        }
+
+        [Route("getbyname/{key}")]
+        [HttpGet]
+        public HttpResponseMessage GetById(HttpRequestMessage request, string key)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var listuser = _applicationUserService.GetUserName(key);
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listuser);
 
                 return response;
             });

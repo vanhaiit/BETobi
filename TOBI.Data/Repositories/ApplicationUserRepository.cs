@@ -9,7 +9,7 @@ namespace TOBI.Data.Repositories
     public interface IApplicationUserRepository : IRepository<ApplicationUser>
     {
         List<ApplicationUser> GetAll(string userName);
-        ApplicationUser GetUserName(string key);
+        List<ApplicationUser> GetUserName(string key);
     }
 
     public class ApplicationUserRepository : RepositoryBase<ApplicationUser>, IApplicationUserRepository
@@ -23,9 +23,9 @@ namespace TOBI.Data.Repositories
             return this.DbContext.Set<ApplicationUser>().Where<ApplicationUser>(x => x.UserName == userName).ToList();
         }
 
-        public ApplicationUser GetUserName(string key)
+        public List<ApplicationUser> GetUserName(string key)
         {
-            return this.DbContext.Set<ApplicationUser>().Where<ApplicationUser>(x => x.UserName == key).Single();
+            return this.DbContext.Set<ApplicationUser>().Where<ApplicationUser>(x => x.UserName == key).ToList();
         }
     }
 }

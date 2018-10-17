@@ -15,7 +15,7 @@ namespace TOBI.Web.Models
         public string TotalAmount { get; set; }
         public string FullName { get; set; }
         public string Address { get; set; }
-        public DateTime BirthDay { get; set; }
+        public DateTime? BirthDay { get; set; }
         public string Avatar { get; set; }
         public string Page { get; set; }
         public int Cost { get; set; }
